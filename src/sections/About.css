@@ -1,0 +1,56 @@
+.about__inner {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.about__copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  max-width: 52ch;
+}
+
+.about__title {
+  font-size: var(--fs-display-md);
+}
+
+.about__body {
+  font-size: var(--fs-body-lg);
+  color: var(--color-taupe-deep);
+}
+
+.about__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.about__rings {
+  position: relative;
+  width: min(260px, 60vw);
+  aspect-ratio: 1;
+}
+
+.about__rings span {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--color-beige);
+}
+
+.about__rings span:nth-child(2) {
+  inset: 15%;
+  border-color: var(--color-taupe);
+}
+
+.about__rings span:nth-child(3) {
+  inset: 32%;
+  background: var(--color-brass);
+  border: none;
+}
+
+@media (min-width: 900px) {
+  .about__inner {
+    grid-template-columns: 1fr 1.3fr;
+  }
+}

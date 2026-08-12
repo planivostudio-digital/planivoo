@@ -1,0 +1,61 @@
+.philosophy {
+  background: var(--color-ivory);
+}
+
+.philosophy__inner {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.philosophy__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 620px;
+}
+
+.philosophy__title {
+  font-size: var(--fs-display-lg);
+}
+
+.philosophy__body {
+  font-size: var(--fs-body-lg);
+  color: var(--color-taupe-deep);
+}
+
+.philosophy__object {
+  display: flex;
+  justify-content: center;
+}
+
+.philosophy__card {
+  width: min(280px, 60vw);
+  aspect-ratio: 3/4;
+  border-radius: var(--radius-lg);
+  background: var(--color-paper);
+  border: 1px solid var(--color-beige);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.philosophy__card-mark {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--color-brass-soft);
+}
+
+.philosophy__card-line {
+  height: 2px;
+  width: 40%;
+  background: var(--color-brass);
+}
+
+@media (min-width: 900px) {
+  .philosophy__inner {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}

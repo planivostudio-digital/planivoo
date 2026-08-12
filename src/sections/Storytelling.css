@@ -1,0 +1,137 @@
+.storytelling {
+  position: relative;
+  background: var(--color-charcoal);
+}
+
+.storytelling__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.storytelling__inner {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: center;
+  width: 100%;
+}
+
+.storytelling__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  color: var(--color-cream);
+}
+
+.storytelling__caption .eyebrow {
+  color: var(--color-brass-soft);
+}
+
+.storytelling__caption .eyebrow::before {
+  background: var(--color-brass-soft);
+}
+
+.storytelling__title {
+  font-size: var(--fs-display-md);
+  color: var(--color-cream);
+}
+
+.storytelling__caption-sub {
+  color: rgba(233, 223, 205, 0.65);
+  font-size: var(--fs-body-lg);
+}
+
+.storytelling__dots {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: var(--space-sm);
+}
+
+.storytelling__dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(233, 223, 205, 0.3);
+  transition: background var(--duration-fast) var(--ease-soft), transform var(--duration-fast) var(--ease-soft);
+}
+
+.storytelling__dots span.is-active {
+  background: var(--color-brass-soft);
+  transform: scale(1.35);
+}
+
+.storytelling__stage {
+  display: flex;
+  justify-content: center;
+  perspective: 1800px;
+}
+
+.storytelling__book {
+  position: relative;
+  width: min(300px, 60vw);
+  aspect-ratio: 3/4;
+  transform-style: preserve-3d;
+}
+
+.storytelling__spine {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #f3ede1, #d8c3a0);
+  box-shadow: var(--shadow-lg);
+}
+
+.storytelling__page {
+  position: absolute;
+  inset: 4% 4% 4% 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: var(--color-paper);
+}
+
+.storytelling__page-mark {
+  position: absolute;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--color-brass-soft);
+}
+
+.storytelling__cover {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-md);
+  background: linear-gradient(155deg, #2b241c, #3c3327);
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: var(--space-sm);
+  gap: 0.4rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(216, 195, 160, 0.25);
+}
+
+.storytelling__cover-brand {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.14em;
+  color: var(--color-cream);
+}
+
+.storytelling__cover-tag {
+  font-size: 0.78rem;
+  color: rgba(233, 223, 205, 0.6);
+}
+
+@media (min-width: 900px) {
+  .storytelling__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
