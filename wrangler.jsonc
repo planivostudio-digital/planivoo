@@ -1,1 +1,8 @@
-
+{
+  "name": "planivo-studio",
+  "compatibility_date": "2026-08-12",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}
