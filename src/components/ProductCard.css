@@ -1,0 +1,113 @@
+.product-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  perspective: 1200px;
+  border-radius: var(--radius-lg);
+}
+
+.product-card__tilt {
+  background: var(--color-paper);
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(0);
+  transition: transform 0.45s var(--ease-soft), box-shadow 0.45s var(--ease-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+.product-card:hover .product-card__tilt,
+.product-card:focus-within .product-card__tilt {
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.product-card--available .product-card__tilt {
+  border-color: var(--color-brass-soft);
+}
+
+.product-card__mock {
+  background: linear-gradient(155deg, var(--color-ivory), var(--color-beige));
+  padding: 1.5rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  transition: transform 0.5s var(--ease-soft);
+}
+
+.product-card:hover .product-card__mock {
+  transform: translateY(-3px);
+}
+
+.product-card__mock-bar {
+  width: 30%;
+  height: 8px;
+  border-radius: 5px;
+  background: var(--color-brass);
+  opacity: 0.7;
+}
+
+.product-card__mock-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.product-card__mock-lines span {
+  height: 7px;
+  border-radius: 5px;
+  background: rgba(38, 32, 25, 0.14);
+  display: block;
+}
+
+.product-card__body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.product-card__status {
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-taupe-deep);
+}
+
+.product-card__status--available {
+  color: var(--color-brass);
+}
+
+.product-card__title {
+  font-size: 1.3rem;
+}
+
+.product-card__desc {
+  font-size: var(--fs-body-sm);
+  color: var(--color-taupe-deep);
+  flex: 1;
+}
+
+.product-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: var(--fs-body-sm);
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin-top: 0.4rem;
+  opacity: 0.85;
+}
+
+.product-card__arrow {
+  transition: transform var(--duration-fast) var(--ease-soft);
+}
+
+.product-card:hover .product-card__arrow {
+  transform: translateX(4px);
+}

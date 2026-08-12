@@ -1,0 +1,117 @@
+.stack3d {
+  --rx: 0deg;
+  --ry: 0deg;
+  --tx: 0px;
+  --ty: 0px;
+  width: 100%;
+  height: clamp(320px, 46vw, 560px);
+  perspective: 1600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stack3d__scene {
+  position: relative;
+  width: min(420px, 78vw);
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.5s var(--ease-soft);
+  animation: stackFloat 9s ease-in-out infinite;
+}
+
+.stack3d__ring {
+  position: absolute;
+  inset: -14%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--color-brass-soft) 0%, transparent 70%);
+  opacity: 0.35;
+  filter: blur(6px);
+  transform: translateZ(-140px);
+}
+
+.stack3d__card {
+  position: absolute;
+  inset: 12% 6%;
+  background: var(--color-paper);
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: clamp(1.1rem, 2vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  transform-style: preserve-3d;
+  transition: transform 0.5s var(--ease-soft);
+}
+
+.stack3d__card--0 {
+  transform: translate3d(calc(var(--tx) * -0.6), calc(var(--ty) * -0.6 - 14px), 60px)
+    rotateZ(-6deg);
+  z-index: 3;
+}
+
+.stack3d__card--1 {
+  transform: translate3d(calc(var(--tx) * 0.3), calc(var(--ty) * 0.3 + 10px), 0px) rotateZ(3deg);
+  z-index: 2;
+  opacity: 0.92;
+}
+
+.stack3d__card--2 {
+  transform: translate3d(calc(var(--tx) * 0.9), calc(var(--ty) * 0.9 + 34px), -60px)
+    rotateZ(9deg);
+  z-index: 1;
+  opacity: 0.78;
+}
+
+.stack3d__card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stack3d__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-brass);
+}
+
+.stack3d__label {
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--color-taupe-deep);
+}
+
+.stack3d__card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  color: var(--color-charcoal);
+}
+
+.stack3d__lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: auto;
+}
+
+.stack3d__line {
+  height: 8px;
+  border-radius: 6px;
+  background: var(--color-beige);
+}
+
+@keyframes stackFloat {
+  0%, 100% { transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(0px); }
+  50% { transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(-14px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack3d__scene {
+    animation: none;
+  }
+}

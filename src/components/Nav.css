@@ -1,0 +1,129 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: transparent;
+  transition: background var(--duration-fast) var(--ease-soft),
+    box-shadow var(--duration-fast) var(--ease-soft),
+    backdrop-filter var(--duration-fast) var(--ease-soft);
+}
+
+.nav--scrolled {
+  background: rgba(250, 246, 239, 0.78);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: 0 1px 0 var(--color-beige);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-block: 1.35rem;
+}
+
+.nav__logo {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--color-charcoal);
+}
+
+.nav__links {
+  display: none;
+  gap: var(--space-md);
+}
+
+.nav__link {
+  font-size: var(--fs-body-sm);
+  font-weight: 500;
+  color: var(--color-ink);
+  position: relative;
+  padding-block: 0.2rem;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -2px;
+  height: 1px;
+  background: var(--color-brass);
+  transition: right var(--duration-fast) var(--ease-soft);
+}
+
+.nav__link:hover::after {
+  right: 0;
+}
+
+.nav__cta {
+  display: none;
+}
+
+.nav__burger {
+  background: none;
+  border: none;
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 110;
+}
+
+.nav__burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--color-charcoal);
+  transition: transform var(--duration-fast) var(--ease-soft),
+    opacity var(--duration-fast) var(--ease-soft);
+}
+
+.nav__burger--open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.nav__burger--open span:nth-child(2) {
+  opacity: 0;
+}
+.nav__burger--open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+.nav__mobile {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  background: var(--color-cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--container-pad);
+  z-index: 105;
+}
+
+.nav__mobile-link {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  color: var(--color-charcoal);
+}
+
+.nav__mobile-cta {
+  margin-top: var(--space-sm);
+  align-self: flex-start;
+}
+
+@media (min-width: 900px) {
+  .nav__links {
+    display: flex;
+  }
+  .nav__cta {
+    display: inline-flex;
+  }
+  .nav__burger {
+    display: none;
+  }
+}
